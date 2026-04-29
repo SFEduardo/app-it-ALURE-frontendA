@@ -1,3 +1,6 @@
+#variables de ambiente
+.env
+
 # Logs
 logs
 *.log
@@ -17,6 +20,7 @@ dist-ssr
 !.vscode/extensions.json
 .idea
 .DS_Store
+src/.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
