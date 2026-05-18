@@ -29,7 +29,7 @@ export default function MobilNav() {
             </span>
           ) : (
             <span className="flex justify-center font-bold">
-              Bienvenidos a AppITZFood.com
+              Bienvenidos a AppITZDespacho.com
             </span>
           )}
         </SheetTitle>
@@ -40,7 +40,7 @@ export default function MobilNav() {
           ) : (
             <Button
               onClick={() => loginWithRedirect()}
-              className="flex-1 bg-orange-500 font-bold"
+              className="flex-1 bg-slate-900 font-bold text-white hover:bg-slate-700"
             >
               LogIn
             </Button>

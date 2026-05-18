@@ -19,7 +19,6 @@ import {
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { type BackEndUser } from "@/api/types"
-import { useEffect } from "react"
 
 const formSchema = z.object({
   email: z.string().optional(),
@@ -42,11 +41,21 @@ type Props = {
 export default function UserProfileForm({ onSave, getUser }: Props) {
   const form = useForm<UserFormData>({
     defaultValues: {
+      email: "",
       name: "",
       address: "",
       city: "",
       country: "",
     },
+    values: getUser
+      ? {
+          email: getUser.email,
+          name: getUser.name,
+          address: getUser.address,
+          city: getUser.city,
+          country: getUser.country,
+        }
+      : undefined,
     resolver: zodResolver(formSchema),
     mode: "onSubmit",
   })
@@ -54,15 +63,12 @@ export default function UserProfileForm({ onSave, getUser }: Props) {
     //console.log(JSON.stringify(data))
     onSave(data)
   } //Fin de onSubmit
-  useEffect(() => {
-    form.reset(getUser)
-  }, [getUser, form])
   return (
-    <Card>
+    <Card className="border border-slate-200 bg-white shadow-sm">
       <form
         id="user-profile-form"
         onSubmit={form.handleSubmit(onSubmit)}
-        className="md:pd-10 space-y-4 rounded-lg bg-gray-50"
+        className="md:pd-10 space-y-4"
       >
         <CardHeader>
           <CardTitle>Perfil del usuario</CardTitle>
@@ -180,7 +186,7 @@ export default function UserProfileForm({ onSave, getUser }: Props) {
             <Button
               type="submit"
               form="user-profile-form"
-              className="bg-orange-500 text-white"
+              className="bg-slate-900 text-white hover:bg-slate-700"
             >
               Actualizar
             </Button>

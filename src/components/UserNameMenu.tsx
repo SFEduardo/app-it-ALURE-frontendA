@@ -15,20 +15,20 @@ export default function UserNameMenu() {
   const { user, logout } = useAuth0()
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="flex items-center gap-2 bg-slate-50 px-3 font-bold hover:text-orange-500">
-        <CircleUserRound className="text-orange-500" />
+      <DropdownMenuTrigger className="flex items-center gap-2 bg-transparent px-3 font-bold text-slate-900 hover:text-slate-700">
+        <CircleUserRound className="text-slate-900" />
         {user?.email}
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="border-orange-500 bg-slate-50">
+      <DropdownMenuContent className="border-slate-900 bg-slate-50">
         <DropdownMenuItem>
-          <Link to="/user-profile" className="font-bold hover:text-orange-500">
+          <Link to="/user-profile" className="font-bold hover:text-slate-900">
             Perfil
           </Link>
         </DropdownMenuItem>
-        <Separator></Separator>
+        <Separator />
         <DropdownMenuItem>
           <Button
-            className="flex flex-1 bg-orange-500 font-bold"
+            className="flex flex-1 bg-slate-900 font-bold text-white hover:bg-slate-700"
             onClick={() => logout()}
           >
             Cerrar sesión
